@@ -1,0 +1,2300 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/Tjatse/pm2-gui"
+
+    >pm2-gui (v0.1.4)</a>
+</h1>
+<h4>An elegant web & terminal interface for Unitech/PM2.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui">module pm2-gui</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.dashboard">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>dashboard
+            <span class="apidocSignatureSpan">(confFile)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.exitGraceful">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>exitGraceful
+            <span class="apidocSignatureSpan">(code, signal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>monitor
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.startAgent">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>startAgent
+            <span class="apidocSignatureSpan">(confFile)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.startWebServer">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>startWebServer
+            <span class="apidocSignatureSpan">(confFile)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pm2-gui.</span>monitor.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pm2-gui.</span>pm</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pm2-gui.</span>stat</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.monitor">module pm2-gui.monitor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.monitor">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>monitor
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.available">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.</span>available
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.parseConnectionString">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.</span>parseConnectionString
+            <span class="apidocSignatureSpan">(connectionString)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.toConnectionString">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.</span>toConnectionString
+            <span class="apidocSignatureSpan">(connection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pm2-gui.monitor.</span>ACCEPT_KEYS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pm2-gui.monitor.</span>PM2_DAEMON_PROPS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">pm2-gui.monitor.</span>DEF_CONF_FILE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.monitor.prototype">module pm2-gui.monitor.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._broadcast">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_broadcast
+            <span class="apidocSignatureSpan">(event, data, nsp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._connectLogSock">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_connectLogSock
+            <span class="apidocSignatureSpan">(socket)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._connectProcSock">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_connectProcSock
+            <span class="apidocSignatureSpan">(socket)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._connectSysSock">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_connectSysSock
+            <span class="apidocSignatureSpan">(socket)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._init">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_init
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._killTailProcess">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_killTailProcess
+            <span class="apidocSignatureSpan">(pmId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._listeningSocketIO">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_listeningSocketIO
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._nextTick">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_nextTick
+            <span class="apidocSignatureSpan">(tick, continuously)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._observePM2">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_observePM2
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._pm2Ver">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_pm2Ver
+            <span class="apidocSignatureSpan">(socket)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._refreshProcs">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_refreshProcs
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._resolveHome">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_resolveHome
+            <span class="apidocSignatureSpan">(pm2Home)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._systemStat">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_systemStat
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype._throttleRefresh">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_throttleRefresh
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype.connect">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>connect
+            <span class="apidocSignatureSpan">(options, success, failure)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype.quit">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>quit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.monitor.prototype.run">
+            function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>run
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.pm">module pm2-gui.pm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm._actionByPMId">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_actionByPMId
+            <span class="apidocSignatureSpan">(sockPath, proc, action, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm._findById">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_findById
+            <span class="apidocSignatureSpan">(sockPath, id, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm._rpc">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_rpc
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm._tailLogs">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_tailLogs
+            <span class="apidocSignatureSpan">(proc, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm.action">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>action
+            <span class="apidocSignatureSpan">(sockPath, action, id, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm.list">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>list
+            <span class="apidocSignatureSpan">(sockPath, cb, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm.sub">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>sub
+            <span class="apidocSignatureSpan">(sockPath, cb, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm.tail">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>tail
+            <span class="apidocSignatureSpan">(opts, each, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.pm.version">
+            function <span class="apidocSignatureSpan">pm2-gui.pm.</span>version
+            <span class="apidocSignatureSpan">(sockPath, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.stat">module pm2-gui.stat</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.stat.cpuInfo">
+            function <span class="apidocSignatureSpan">pm2-gui.stat.</span>cpuInfo
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.stat.cpuUsage">
+            function <span class="apidocSignatureSpan">pm2-gui.stat.</span>cpuUsage
+            <span class="apidocSignatureSpan">(fn, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">pm2-gui.stat.</span>uptime</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pm2-gui.stat.</span>cpus</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pm2-gui.stat.</span>memory</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">pm2-gui.stat.</span>arch</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">pm2-gui.stat.</span>hostname</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">pm2-gui.stat.</span>platform</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">pm2-gui.stat.</span>release</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui" id="apidoc.module.pm2-gui">module pm2-gui</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.dashboard" id="apidoc.element.pm2-gui.dashboard">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>dashboard
+        <span class="apidocSignatureSpan">(confFile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dashboard(confFile) {
+  // restore cursor
+  process.on(&#x27;exit&#x27;, function () {
+    process.stdout.write(&#x27;\u001b[?25h&#x27;)
+  })
+  var monitor = slave({
+    confFile: confFile
+  })
+  var options = _.clone(monitor.options)
+  var q = Monitor.available(options)
+
+  if (!q) {
+    console.error(&#x27;No agent is online, can not start it.&#x27;)
+    return process.exit(0)
+  }
+  var ql = q.choices.length
+  if (ql === 1) {
+    if (q.choices[0].short !== &#x27;localhost&#x27;) {
+      console.info(&#x27;There is just one remoting server online, try to connect it.&#x27;)
+    }
+    return _connectToDashboard(monitor, options, Monitor.parseConnectionString(q.choices[0].value))
+  }
+  if (!options.agent || !options.agent.offline) {
+    q.choices.splice(ql - 1, 0, new inquirer.Separator())
+  }
+
+  console.info(&#x27;Remoting servers are online, choose one you are intrested in.&#x27;)
+  console.log(&#x27;&#x27;)
+  inquirer.prompt(q).then(function (answers) {
+    console.log(&#x27;&#x27;)
+    _connectToDashboard(monitor, options, Monitor.parseConnectionString(answers.socket_server))
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Programmable:
+```javascript
+var pm2GUI = require(&#x27;pm2-gui&#x27;);
+pm2GUI.startWebServer([ini_config_file]);
+pm2GUI.startAgent([ini_config_file]);
+pm2GUI.<span class="apidocCodeKeywordSpan">dashboard</span>([ini_config_file]);
+```
+
+&#x3c;a name=&#x22;config&#x22; /&#x3e;
+# Configuration
+Edit the `pm2-gui/pm2-gui.ini` file or copy the [config example](./pm2-gui.ini) to `/etc/pm2-gui.ini` (starting with `pm2-gui start
+ /etc/pm2-gui.ini`):
+
+&#x3c;a name=&#x22;ui&#x22; /&#x3e;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.exitGraceful" id="apidoc.element.pm2-gui.exitGraceful">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>exitGraceful
+        <span class="apidocSignatureSpan">(code, signal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function exitGraceful(code, signal) {
+  code = code || 0
+  if (signal !== &#x27;-f&#x27;) {
+    console.debug(&#x27;Slave has exited, code: &#x27; + code + &#x27;, signal: &#x27; + (signal || &#x27;NULL&#x27;))
+  }
+  var fds = 0
+
+  function tryToExit () {
+    if ((fds &#x26; 1) &#x26;&#x26; (fds &#x26; 2)) {
+      process.exit(code)
+    }
+  }
+
+  [process.stdout, process.stderr].forEach(function (std) {
+    var fd = std.fd
+    if (!std.bufferSize) {
+      fds = fds | fd
+    } else {
+      std.write &#x26;&#x26; std.write(&#x27;&#x27;, function () {
+        fds = fds | fd
+        tryToExit()
+      })
+    }
+  })
+  tryToExit()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor" id="apidoc.element.pm2-gui.monitor">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>monitor
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Monitor(options) {
+  if (!(this instanceof Monitor)) {
+    return new Monitor(options)
+  }
+
+  // Initialize...
+  this._init(options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.startAgent" id="apidoc.element.pm2-gui.startAgent">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>startAgent
+        <span class="apidocSignatureSpan">(confFile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function startAgent(confFile) {
+  var monitor = slave({
+    confFile: confFile
+  })
+
+  var options = monitor.options
+  options.agent = options.agent || {}
+  if (options.agent.offline) {
+    console.error(&#x27;Agent is offline, can not start it.&#x27;)
+    return process.exit(0)
+  }
+  options.port = options.port || 8088
+  var sockio = socketIO()
+  sockio.listen(options.port, {
+    origins: options.origins || &#x27;*:*&#x27;
+  })
+  monitor.sockio = sockio
+  monitor.run()
+  console.info(&#x27;Socket.io server is listening on 0.0.0.0:&#x27; + options.port)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+$ node pm2-gui.js &#x3c;cmd&#x3e; [options]
+```
+
+Programmable:
+```javascript
+var pm2GUI = require(&#x27;pm2-gui&#x27;);
+pm2GUI.startWebServer([ini_config_file]);
+pm2GUI.<span class="apidocCodeKeywordSpan">startAgent</span>([ini_config_file]);
+pm2GUI.dashboard([ini_config_file]);
+```
+
+&#x3c;a name=&#x22;config&#x22; /&#x3e;
+# Configuration
+Edit the `pm2-gui/pm2-gui.ini` file or copy the [config example](./pm2-gui.ini) to `/etc/pm2-gui.ini` (starting with `pm2-gui start
+ /etc/pm2-gui.ini`):
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.startWebServer" id="apidoc.element.pm2-gui.startWebServer">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>startWebServer
+        <span class="apidocSignatureSpan">(confFile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function startWebServer(confFile) {
+  var monitor = slave({
+    confFile: confFile
+  })
+  var options = monitor.options
+
+  options.port = options.port || 8088
+  var server = Web({
+    middleware: function (req, res, next) {
+      req._config = options
+      next()
+    },
+    port: options.port
+  })
+
+  monitor.sockio = socketIO(server, {
+    origins: options.origins || &#x27;*:*&#x27;
+  })
+  monitor.run()
+  console.info(&#x27;Web server is listening on 127.0.0.1:&#x27; + options.port)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```bash
+$ node pm2-gui.js &#x3c;cmd&#x3e; [options]
+```
+
+Programmable:
+```javascript
+var pm2GUI = require(&#x27;pm2-gui&#x27;);
+pm2GUI.<span class="apidocCodeKeywordSpan">startWebServer</span>([ini_config_file]);
+pm2GUI.startAgent([ini_config_file]);
+pm2GUI.dashboard([ini_config_file]);
+```
+
+&#x3c;a name=&#x22;config&#x22; /&#x3e;
+# Configuration
+Edit the `pm2-gui/pm2-gui.ini` file or copy the [config example](./pm2-gui.ini) to `/etc/pm2-gui.ini` (starting with `pm2-gui start
+ /etc/pm2-gui.ini`):
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.monitor" id="apidoc.module.pm2-gui.monitor">module pm2-gui.monitor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.monitor" id="apidoc.element.pm2-gui.monitor.monitor">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>monitor
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Monitor(options) {
+  if (!(this instanceof Monitor)) {
+    return new Monitor(options)
+  }
+
+  // Initialize...
+  this._init(options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.available" id="apidoc.element.pm2-gui.monitor.available">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.</span>available
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">available = function (options) {
+  options.agent = options.agent || {}
+  var remotable = options.remotes &#x26;&#x26; _.keys(options.remotes).length &#x3e; 0
+
+  if (options.agent.offline &#x26;&#x26; !remotable) {
+    return null
+  }
+
+  options.port = options.port || 8088
+
+  var q = {
+    name: &#x27;socket_server&#x27;,
+    message: &#x27;Which socket server would you wanna connect to&#x27;,
+    type: &#x27;list&#x27;,
+    choices: []
+  }
+  var wrapLocal = function () {
+    return {
+      value: (options.agent &#x26;&#x26; options.agent.authorization ? options.agent.authorization + &#x27;@&#x27; : &#x27;&#x27;) + &#x27;127.0.0.1:&#x27; + options.port
+,
+      short: &#x27;localhost&#x27;
+    }
+  }
+  if (!remotable) {
+    q.choices = [wrapLocal()]
+    return q
+  }
+  var maxShortLength = 0
+  for (var remote in options.remotes) {
+    var connectionString = options.remotes[remote]
+    q.choices.push({
+      value: connectionString,
+      short: remote
+    })
+    maxShortLength = Math.max(maxShortLength, remote.length)
+  }
+  if (!options.agent.offline) {
+    var conn = wrapLocal()
+    q.choices.push(conn)
+    maxShortLength = Math.max(maxShortLength, conn.short.length)
+  }
+
+  if (q.choices.length &#x3e; 1) {
+    q.choices.forEach(function (c) {
+      c.name = &#x27;[&#x27; + c.short + Array(maxShortLength - c.short.length + 1).join(options.blank || &#x27; &#x27;) + &#x27;] &#x27;
+    })
+  }
+
+  return q
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.parseConnectionString" id="apidoc.element.pm2-gui.monitor.parseConnectionString">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.</span>parseConnectionString
+        <span class="apidocSignatureSpan">(connectionString)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseConnectionString = function (connectionString) {
+  var connection = {
+    port: 8088,
+    hostname: &#x27;127.0.0.1&#x27;,
+    authorization: &#x27;&#x27;
+  }
+  var lastAt = connectionString.lastIndexOf(&#x27;@&#x27;)
+  if (lastAt &#x3e;= 0) {
+    connection.authorization = connectionString.slice(0, lastAt)
+    connectionString = connectionString.slice(lastAt + 1)
+  }
+  if (!/^https?:\/\//i.test(connectionString)) {
+    connectionString = &#x27;http://&#x27; + connectionString
+  }
+
+  if (connectionString) {
+    connectionString = url.parse(connectionString)
+    connection.hostname = connectionString.hostname
+    connection.port = connectionString.port
+    connection.path = (connectionString.path || &#x27;&#x27;).replace(/^\/+/, &#x27;&#x27;)
+    connection.protocol = connectionString.protocol
+  }
+  return connection
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.toConnectionString" id="apidoc.element.pm2-gui.monitor.toConnectionString">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.</span>toConnectionString
+        <span class="apidocSignatureSpan">(connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toConnectionString = function (connection) {
+  var uri = (connection.protocol || &#x27;http:&#x27;) + &#x27;//&#x27; + (connection.hostname || &#x27;127.0.0.1&#x27;) + &#x27;:&#x27; + connection.port +
+    (connection.path || &#x27;&#x27;) + (connection.namespace || &#x27;&#x27;)
+
+  if (connection.authorization) {
+    uri += (uri.indexOf(&#x27;?&#x27;) &#x3e; 0 ? &#x27;&#x26;&#x27; : &#x27;?&#x27;) + &#x27;auth=&#x27; + connection.authorization
+  }
+  return uri
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {Function} success
+ * @param  {Function} failure
+ */
+Monitor.prototype.connect = function (options, success, failure) {
+if (!options.port) {
+  throw new Error(&#x27;Port is required!&#x27;)
+}
+var serverUri = Monitor.<span class="apidocCodeKeywordSpan">toConnectionString</span>(options)
+
+success = _.once(success)
+failure = _.once(failure)
+
+console.info(&#x27;Connecting to&#x27;, serverUri)
+var socket = socketIOClient(serverUri)
+socket.on(&#x27;connect&#x27;, function () {
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.monitor.prototype" id="apidoc.module.pm2-gui.monitor.prototype">module pm2-gui.monitor.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._broadcast" id="apidoc.element.pm2-gui.monitor.prototype._broadcast">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_broadcast
+        <span class="apidocSignatureSpan">(event, data, nsp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_broadcast = function (event, data, nsp) {
+  nsp = nsp || conf.NSP.SYS
+
+  if (this._noClient) {
+    return console.debug(&#x27;No client is connecting, ignore broadcasting&#x27;, event, &#x27;to&#x27;, nsp)
+  }
+  console.debug(&#x27;Broadcasting&#x27;, event, &#x27;to&#x27;, nsp)
+  this._sockio.of(nsp).emit(event, data)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.debug(prefix, action, &#x27;completed!&#x27;)
+    forceRefresh &#x26;&#x26; self._throttleRefresh()
+  })
+})
+sendProcs()
+socket.on(&#x27;procs&#x27;, sendProcs)
+self._pm2Ver(socket)
+this._sysStat &#x26;&#x26; this.<span class="apidocCodeKeywordSpan">_broadcast</span>(&#x27;system_stat&#x27;, this._sysStat)
+
+// Grep system states once and again.
+if (this._status !== &#x27;R&#x27;) {
+  this._nextTick(this.options.refresh || 5000)
+}
+
+function sendProcs () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._connectLogSock" id="apidoc.element.pm2-gui.monitor.prototype._connectLogSock">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_connectLogSock
+        <span class="apidocSignatureSpan">(socket)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_connectLogSock = function (socket) {
+  var self = this
+
+  // Emit error.
+  function emitError (err, pmId, keepANSI) {
+    var data = {
+      pm_id: pmId,
+      msg: keepANSI ? chalk.red(err.message) : &#x27;&#x3c;span style=&#x22;color: #ff0000&#x22;&#x3e;Error: &#x27; + err.message + &#x27;&#x3c;/span&#x3e;&#x27;
+    }
+    self._broadcast.call(self, &#x27;log&#x27;, data, conf.NSP.LOG) // eslint-disable-line no-useless-call
+  }
+
+  function startTailProcess (pmId, keepANSI) {
+    socket._pm_id = pmId
+
+    if (self._tails[pmId]) {
+      return
+    }
+
+    // Tail logs.
+    pm.tail({
+      sockPath: self.options.pm2Conf.DAEMON_RPC_PORT,
+      logPath: self.options.pm2Conf.PM2_LOG_FILE_PATH,
+      pm_id: pmId
+    }, function (err, lines) {
+      if (err) {
+        return emitError(err, pmId, keepANSI)
+      }
+      // Emit logs to clients.
+      var data = {
+        pm_id: pmId,
+        msg: lines.map(function (line) {
+          if (!keepANSI) {
+            line = line.replace(/\s/, &#x27;&#x26;nbsp;&#x27;)
+            return &#x27;&#x3c;span&#x3e;&#x27; + ansiHTML(line) + &#x27;&#x3c;/span&#x3e;&#x27;
+          } else {
+            return line
+          }
+        }).join(keepANSI ? &#x27;\n&#x27; : &#x27;&#x27;)
+      }
+      self._broadcast.call(self, &#x27;log&#x27;, data, conf.NSP.LOG) // eslint-disable-line no-useless-call
+    }, function (err, tail) {
+      if (err) {
+        return emitError(err, pmId, keepANSI)
+      }
+      if (!tail) {
+        return emitError(new Error(&#x27;No log can be found.&#x27;), pmId, keepANSI)
+      }
+
+      console.info(&#x27;[pm2:&#x27; + pmId + &#x27;]&#x27;, &#x27;tail starting...&#x27;)
+      self._tails[pmId] = tail
+    })
+  }
+
+  socket.on(&#x27;disconnect&#x27;, self._killTailProcess.bind(self))
+  socket.on(&#x27;tail_kill&#x27;, self._killTailProcess.bind(self))
+  socket.on(&#x27;tail&#x27;, startTailProcess)
+  console.info(&#x27;Connected to &#x27; + socket.nsp.name + &#x27;!&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._connectProcSock" id="apidoc.element.pm2-gui.monitor.prototype._connectProcSock">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_connectProcSock
+        <span class="apidocSignatureSpan">(socket)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_connectProcSock = function (socket) {
+  var self = this
+  // Emit error.
+  function emitError (err, pid) {
+    var data = {
+      pid: pid,
+      msg: &#x27;&#x3c;span style=&#x22;color: #ff0000&#x22;&#x3e;Error: &#x27; + err.message + &#x27;&#x3c;/span&#x3e;&#x27;
+    }
+    self._broadcast.call(self, &#x27;proc&#x27;, data, conf.NSP.PROC) // eslint-disable-line no-useless-call
+  }
+
+  function killObserver () {
+    var socks = self._sockio.of(conf.NSP.PROC).sockets
+    var canNotBeDeleted = {}
+
+    if (Array.isArray(socks) &#x26;&#x26; socks.length &#x3e; 0) {
+      socks.forEach(function (sock) {
+        if (sock._pid) {
+          canNotBeDeleted[sock._pid.toString()] = 1
+        }
+      })
+    }
+
+    for (var pid in self._usages) {
+      var timer
+      if (!canNotBeDeleted[pid] &#x26;&#x26; (timer = self._usages[pid])) {
+        clearInterval(timer)
+        delete self._usages[pid]
+        console.debug(&#x27;[pid:&#x27; + pid + &#x27;]&#x27;, &#x27;cpu and memory observer destroyed!&#x27;)
+      }
+    }
+  }
+
+  function runObserver (pid) {
+    socket._pid = pid
+
+    var pidStr = pid.toString()
+    if (self._usages[pidStr]) {
+      return
+    }
+
+    console.debug(&#x27;[pid:&#x27; + pidStr + &#x27;]&#x27;, &#x27;cpu and memory observer is running...&#x27;)
+
+    function runTimer () {
+      pidusage.stat(pid, function (err, stat) {
+        if (err) {
+          clearInterval(self._usages[pidStr])
+          delete self._usages[pidStr]
+          return emitError.call(self, err, pid)
+        }
+        stat.memory = stat.memory * 100 / totalmem
+
+        var data = {
+          pid: pid,
+          time: Date.now(),
+          usage: stat
+        }
+        self._broadcast.call(self, &#x27;proc&#x27;, data, conf.NSP.PROC) // eslint-disable-line no-useless-call
+      })
+    }
+
+    self._usages[pidStr] = setInterval(runTimer, 3000)
+    runTimer(this)
+  }
+
+  socket.on(&#x27;disconnect&#x27;, killObserver)
+  socket.on(&#x27;proc&#x27;, runObserver)
+  console.info(&#x27;Connected to &#x27; + socket.nsp.name + &#x27;!&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._connectSysSock" id="apidoc.element.pm2-gui.monitor.prototype._connectSysSock">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_connectSysSock
+        <span class="apidocSignatureSpan">(socket)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_connectSysSock = function (socket) {
+  var self = this
+  // Still has one client connects to server at least.
+  self._noClient = false
+
+  socket.on(&#x27;disconnect&#x27;, function () {
+    // Check connecting client.
+    self._noClient = self._sockio.of(conf.NSP.SYS).sockets.length === 0
+  })
+
+  // Trigger actions of process.
+  socket.on(&#x27;action&#x27;, function (action, id) {
+    var prefix = &#x27;[pm2:&#x27; + id + &#x27;]&#x27;
+    console.debug(prefix, action, &#x27;sending to pm2 daemon...&#x27;)
+    if (self.options.readonly) {
+      console.warn(prefix, &#x27;denied, readonly!&#x27;)
+      return socket.emit(&#x27;action&#x27;, id, &#x27;Can not complete the action due to denied by server, it is readonly!&#x27;)
+    }
+    pm.action(self.options.pm2Conf.DAEMON_RPC_PORT, action, id, function (err, forceRefresh) {
+      if (err) {
+        console.error(action, err.message)
+        return socket.emit(&#x27;action&#x27;, id, &#x27;Can not complete the action due to &#x27; + err.message)
+      }
+      console.debug(prefix, action, &#x27;completed!&#x27;)
+      forceRefresh &#x26;&#x26; self._throttleRefresh()
+    })
+  })
+  sendProcs()
+  socket.on(&#x27;procs&#x27;, sendProcs)
+  self._pm2Ver(socket)
+  this._sysStat &#x26;&#x26; this._broadcast(&#x27;system_stat&#x27;, this._sysStat)
+
+  // Grep system states once and again.
+  if (this._status !== &#x27;R&#x27;) {
+    this._nextTick(this.options.refresh || 5000)
+  }
+
+  function sendProcs () {
+    self._procs &#x26;&#x26; socket.emit(typeof self._procs === &#x27;string&#x27; ? &#x27;info&#x27; : &#x27;procs&#x27;, self._procs)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._init" id="apidoc.element.pm2-gui.monitor.prototype._init">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_init
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_init = function (options) {
+  options = options || {}
+
+  defConf = conf.File(options.confFile || path.resolve(__dirname, &#x27;..&#x27;, Monitor.DEF_CONF_FILE)).loadSync().valueOf()
+  defConf = _.pick.call(null, defConf, Monitor.ACCEPT_KEYS)
+
+  options = _.pick.apply(options, Monitor.ACCEPT_KEYS).valueOf()
+  options = _.defaults(options, defConf)
+
+  options.pm2 = this._resolveHome(options.pm2)
+  Log(options.log)
+
+  // Load PM2 config.
+  var pm2ConfPath = path.join(options.pm2, &#x27;conf.js&#x27;)
+  var fbMsg = &#x27;&#x27;
+  try {
+    options.pm2Conf = require(pm2ConfPath)(options.pm2)
+    if (!options.pm2Conf) {
+      throw new Error(404)
+    }
+  } catch (err) {
+    fbMsg = &#x27;Can not load PM2 config, the file &#x22;&#x27; + pm2ConfPath + &#x27;&#x22; does not exist or empty, fallback to auto-load by pm2 home. &#x27;
+    console.warn(fbMsg)
+    options.pm2Conf = {
+      DAEMON_RPC_PORT: path.resolve(options.pm2, &#x27;rpc.sock&#x27;),
+      DAEMON_PUB_PORT: path.resolve(options.pm2, &#x27;pub.sock&#x27;),
+      PM2_LOG_FILE_PATH: path.resolve(options.pm2, &#x27;pm2.log&#x27;)
+    }
+  }
+
+  Monitor.PM2_DAEMON_PROPS.forEach(function (prop) {
+    var val = options.pm2Conf[prop]
+    if (!val || !fs.existsSync(val)) {
+      throw new Error(fbMsg + &#x27;Unfortunately &#x27; + (val || prop) + &#x27; can not found, please makesure that your pm2 is running and the
+ home path is correct.&#x27;)
+    }
+  })
+
+  // Bind socket.io server to context.
+  if (options.sockio) {
+    this.sockio = options.sockio
+    delete options.sockio
+  }
+
+  // Bind to context.
+  this.options = options
+  Object.freeze(this.options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+function Monitor (options) {
+  if (!(this instanceof Monitor)) {
+    return new Monitor(options)
+  }
+
+  // Initialize...
+  this.<span class="apidocCodeKeywordSpan">_init</span>(options)
+}
+
+Monitor.ACCEPT_KEYS = [&#x27;pm2&#x27;, &#x27;refresh&#x27;, &#x27;daemonize&#x27;, &#x27;readonly&#x27;, &#x27;max_restarts&#x27
+;, &#x27;port&#x27;, &#x27;log&#x27;, &#x27;agent&#x27;, &#x27;remotes&#x27;, &#x27;origins&#x27;]
+Monitor.DEF_CONF_FILE = &#x27;pm2-gui.ini&#x27;
+Monitor.PM2_DAEMON_PROPS = [&#x27;DAEMON_RPC_PORT&#x27;, &#x27;DAEMON_PUB_PORT&#x27;]
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._killTailProcess" id="apidoc.element.pm2-gui.monitor.prototype._killTailProcess">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_killTailProcess
+        <span class="apidocSignatureSpan">(pmId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_killTailProcess = function (pmId) {
+  var self = this
+
+  function killTail (id) {
+    var tail = self._tails[id]
+    if (!tail) {
+      return
+    }
+    try {
+      tail.kill(&#x27;SIGTERM&#x27;)
+    } catch (err) {}
+
+    delete self._tails[id]
+    console.info(&#x27;[pm2:&#x27; + id + &#x27;]&#x27;, &#x27;tail destroyed!&#x27;)
+  }
+  if (!isNaN(pmId)) {
+    return killTail(pmId)
+  }
+
+  var socks = self._sockio.of(conf.NSP.LOG).sockets
+  var canNotBeDeleted = {}
+  if (socks &#x26;&#x26; socks.length &#x3e; 0) {
+    socks.forEach(function (sock) {
+      canNotBeDeleted[sock._pm_id] = 1
+    })
+  }
+
+  for (var _id in self._tails) {
+    if (!canNotBeDeleted[_id]) {
+      killTail(_id)
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   this.pm2Sock.close()
+ }
+ if (this._sockio) {
+   console.debug(&#x27;Closing socket.io server.&#x27;)
+   this._sockio.close()
+
+   console.debug(&#x27;Destroying tails.&#x27;)
+   this.<span class="apidocCodeKeywordSpan">_killTailProcess</span>()
+ }
+}
+
+/**
+* Connect to socket.io server.
+* @param  {String} ns the namespace.
+* @param  {Function} success
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._listeningSocketIO" id="apidoc.element.pm2-gui.monitor.prototype._listeningSocketIO">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_listeningSocketIO
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_listeningSocketIO = function () {
+  if (!this._sockio || this._sockio._listening) {
+    console.warn(&#x27;Avoid duplicated listening!&#x27;)
+    return
+  }
+
+  this._sockio._listening = true
+  for (var nsp in conf.NSP) {
+    this._sockio.of(conf.NSP[nsp]).on(&#x27;connection&#x27;, this[&#x27;_connect&#x27; + (nsp[0] + nsp.toLowerCase().slice(1)) + &#x27;Sock&#x27;].bind(this))
+    console.info(&#x27;Listening connection event on&#x27;, nsp.toLowerCase())
+  }
+
+  var auth
+  if (!(this.options.agent &#x26;&#x26; (auth = this.options.agent.authorization))) {
+    return
+  }
+  this._sockio.use(function (socket, next) {
+    if (auth !== socket.handshake.query.auth) {
+      return next(new Error(&#x27;unauthorized&#x27;))
+    }
+    next()
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  this._tails = {}
+  this._usages = {}
+
+  // Observe PM2
+  this._observePM2()
+
+  this.<span class="apidocCodeKeywordSpan">_listeningSocketIO</span>()
+}
+
+/**
+ * Quit monitor.
+ * @return {[type]} [description]
+ */
+Monitor.prototype.quit = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._nextTick" id="apidoc.element.pm2-gui.monitor.prototype._nextTick">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_nextTick
+        <span class="apidocSignatureSpan">(tick, continuously)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_nextTick = function (tick, continuously) {
+  // Return it if worker is running.
+  if (this._status === &#x27;R&#x27; &#x26;&#x26; !continuously) {
+    return
+  }
+  // Running
+  this._status = &#x27;R&#x27;
+  console.debug(&#x27;monitor heartbeat per&#x27;, tick + &#x27;ms&#x27;)
+  // Grep system state
+  this._systemStat(function () {
+    // If there still has any client, grep again after `tick` ms.
+    if (!this._noClient) {
+      return setTimeout(this._nextTick.bind(this, tick, true), tick)
+    }
+    // Stop
+    delete this._status
+    console.debug(&#x27;monitor heartbeat destroyed!&#x27;)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  sendProcs()
+  socket.on(&#x27;procs&#x27;, sendProcs)
+  self._pm2Ver(socket)
+  this._sysStat &#x26;&#x26; this._broadcast(&#x27;system_stat&#x27;, this._sysStat)
+
+  // Grep system states once and again.
+  if (this._status !== &#x27;R&#x27;) {
+    this.<span class="apidocCodeKeywordSpan">_nextTick</span>(this.options.refresh || 5000)
+  }
+
+  function sendProcs () {
+    self._procs &#x26;&#x26; socket.emit(typeof self._procs === &#x27;string&#x27; ? &#x27;info&#x27; : &#x27;procs&#x27;, self.
+_procs)
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._observePM2" id="apidoc.element.pm2-gui.monitor.prototype._observePM2">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_observePM2
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_observePM2 = function () {
+  var pm2Daemon = this.options.pm2Conf.DAEMON_PUB_PORT
+  console.info(&#x27;Connecting to pm2 daemon:&#x27;, pm2Daemon)
+  this.pm2Sock = pm.sub(pm2Daemon, function (data) {
+    console.info(chalk.magenta(data.event), data.process.name + &#x27;-&#x27; + data.process.pm_id)
+    this._throttleRefresh()
+  }, this)
+
+  // Enforce a refresh operation if RPC is not online.
+  this._throttleRefresh()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Monitor.prototype.run = function () {
+ this._noClient = true
+
+ this._tails = {}
+ this._usages = {}
+
+ // Observe PM2
+ this.<span class="apidocCodeKeywordSpan">_observePM2</span>()
+
+ this._listeningSocketIO()
+}
+
+/**
+* Quit monitor.
+* @return {[type]} [description]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._pm2Ver" id="apidoc.element.pm2-gui.monitor.prototype._pm2Ver">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_pm2Ver
+        <span class="apidocSignatureSpan">(socket)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_pm2Ver = function (socket) {
+  var pm2RPC = this.options.pm2Conf.DAEMON_RPC_PORT
+  console.info(&#x27;Fetching pm2 version:&#x27;, pm2RPC)
+  pm.version(pm2RPC, function (err, version) {
+    socket.emit(&#x27;pm2_ver&#x27;, (err || !version) ? &#x27;0.0.0&#x27; : version)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+    console.debug(prefix, action, &#x27;completed!&#x27;)
+    forceRefresh &#x26;&#x26; self._throttleRefresh()
+  })
+})
+sendProcs()
+socket.on(&#x27;procs&#x27;, sendProcs)
+self.<span class="apidocCodeKeywordSpan">_pm2Ver</span>(socket)
+this._sysStat &#x26;&#x26; this._broadcast(&#x27;system_stat&#x27;, this._sysStat)
+
+// Grep system states once and again.
+if (this._status !== &#x27;R&#x27;) {
+  this._nextTick(this.options.refresh || 5000)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._refreshProcs" id="apidoc.element.pm2-gui.monitor.prototype._refreshProcs">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_refreshProcs
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_refreshProcs = function () {
+  pm.list(this.options.pm2Conf.DAEMON_RPC_PORT, function (err, procs) {
+    if (err) {
+      return this._broadcast(&#x27;info&#x27;, &#x27;Can not connect to pm2 daemon, &#x27; + err.message)
+    }
+    // Wrap processes and cache them.
+    this._procs = procs.map(function (proc) {
+      proc.pm2_env = proc.pm2_env || {
+        USER: &#x27;UNKNOWN&#x27;
+      }
+      var pm2Env = {
+        user: proc.pm2_env.USER
+      }
+
+      for (var key in proc.pm2_env) {
+        // Ignore useless fields.
+        if (key.slice(0, 1) === &#x27;_&#x27; ||
+          key.indexOf(&#x27;axm_&#x27;) === 0 || !!~[&#x27;versioning&#x27;, &#x27;command&#x27;].indexOf(key) ||
+          key.charCodeAt(0) &#x3c;= 90) {
+          continue
+        }
+        pm2Env[key] = proc.pm2_env[key]
+      }
+      proc.pm2_env = pm2Env
+      return proc
+    })
+    // Emit to client.
+    this._broadcast(&#x27;procs&#x27;, this._procs)
+  }, this)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+Monitor.prototype._throttleRefresh = function () {
+ if (this._throttle) {
+   clearTimeout(this._throttle)
+ }
+ this._throttle = setTimeout(function (ctx) {
+   ctx._throttle = null
+   ctx.<span class="apidocCodeKeywordSpan">_refreshProcs</span>()
+ }, 500, this)
+}
+
+/**
+* Refresh processes
+* @private
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._resolveHome" id="apidoc.element.pm2-gui.monitor.prototype._resolveHome">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_resolveHome
+        <span class="apidocSignatureSpan">(pm2Home)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_resolveHome = function (pm2Home) {
+  if (pm2Home &#x26;&#x26; pm2Home.indexOf(&#x27;~/&#x27;) === 0) {
+    // Get root directory of PM2.
+    pm2Home = process.env.PM2_HOME || path.resolve(process.env.HOME || process.env.HOMEPATH, pm2Home.substr(2))
+
+    // Make sure exist.
+    if (!pm2Home || !fs.existsSync(pm2Home)) {
+      throw new Error(&#x27;PM2 root can not be located, try to initialize PM2 by executing `pm2 ls` or set environment variable vi `
+export PM2_HOME=[ROOT]`.&#x27;)
+    }
+  }
+  return pm2Home
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+defConf = conf.File(options.confFile || path.resolve(__dirname, &#x27;..&#x27;, Monitor.DEF_CONF_FILE)).loadSync().valueOf()
+defConf = _.pick.call(null, defConf, Monitor.ACCEPT_KEYS)
+
+options = _.pick.apply(options, Monitor.ACCEPT_KEYS).valueOf()
+options = _.defaults(options, defConf)
+
+options.pm2 = this.<span class="apidocCodeKeywordSpan">_resolveHome</span>(options.pm2)
+Log(options.log)
+
+// Load PM2 config.
+var pm2ConfPath = path.join(options.pm2, &#x27;conf.js&#x27;)
+var fbMsg = &#x27;&#x27;
+try {
+  options.pm2Conf = require(pm2ConfPath)(options.pm2)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._systemStat" id="apidoc.element.pm2-gui.monitor.prototype._systemStat">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_systemStat
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_systemStat = function (cb) {
+  stat.cpuUsage(function (err, cpuUsage) {
+    if (err) {
+      // Log only.
+      console.error(&#x27;Can not load system/cpu/memory information: &#x27;, err.message)
+    } else {
+      // System states.
+      this._sysStat = _.defaults(_(stat).pick(&#x27;cpus&#x27;, &#x27;arch&#x27;, &#x27;hostname&#x27;, &#x27;platform&#x27;, &#x27;release&#x27;, &#x27;uptime&#x27;, &#x27;memory&#x27;).clone(), {
+        cpu: cpuUsage
+      })
+      this._broadcast.call(this, &#x27;system_stat&#x27;, this._sysStat) // eslint-disable-line no-useless-call
+    }
+    cb.call(this)
+  }, this)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this._status === &#x27;R&#x27; &#x26;&#x26; !continuously) {
+  return
+}
+// Running
+this._status = &#x27;R&#x27;
+console.debug(&#x27;monitor heartbeat per&#x27;, tick + &#x27;ms&#x27;)
+// Grep system state
+this.<span class="apidocCodeKeywordSpan">_systemStat</span>(function () {
+  // If there still has any client, grep again after `tick` ms.
+  if (!this._noClient) {
+    return setTimeout(this._nextTick.bind(this, tick, true), tick)
+  }
+  // Stop
+  delete this._status
+  console.debug(&#x27;monitor heartbeat destroyed!&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype._throttleRefresh" id="apidoc.element.pm2-gui.monitor.prototype._throttleRefresh">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>_throttleRefresh
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_throttleRefresh = function () {
+  if (this._throttle) {
+    clearTimeout(this._throttle)
+  }
+  this._throttle = setTimeout(function (ctx) {
+    ctx._throttle = null
+    ctx._refreshProcs()
+  }, 500, this)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  pm.action(self.options.pm2Conf.DAEMON_RPC_PORT, action, id, function (err, forceRefresh) {
+    if (err) {
+      console.error(action, err.message)
+      return socket.emit(&#x27;action&#x27;, id, &#x27;Can not complete the action due to &#x27; + err.message)
+    }
+    console.debug(prefix, action, &#x27;completed!&#x27;)
+    forceRefresh &#x26;&#x26; self.<span class="apidocCodeKeywordSpan">_throttleRefresh</span>()
+  })
+})
+sendProcs()
+socket.on(&#x27;procs&#x27;, sendProcs)
+self._pm2Ver(socket)
+this._sysStat &#x26;&#x26; this._broadcast(&#x27;system_stat&#x27;, this._sysStat)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype.connect" id="apidoc.element.pm2-gui.monitor.prototype.connect">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>connect
+        <span class="apidocSignatureSpan">(options, success, failure)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (options, success, failure) {
+  if (!options.port) {
+    throw new Error(&#x27;Port is required!&#x27;)
+  }
+  var serverUri = Monitor.toConnectionString(options)
+
+  success = _.once(success)
+  failure = _.once(failure)
+
+  console.info(&#x27;Connecting to&#x27;, serverUri)
+  var socket = socketIOClient(serverUri)
+  socket.on(&#x27;connect&#x27;, function () {
+    success(socket)
+  })
+
+  socket.on(&#x27;error&#x27;, function (err) {
+    !failure(err, socket)
+  })
+
+  socket.on(&#x27;connect_error&#x27;, function (err) {
+    !failure(err, socket)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ // Process events.
+ sub.on(&#x27;process:*&#x27;, function (e, d) {
+   if (d &#x26;&#x26; !!~allowedEvents.indexOf(d.event)) {
+     cb.call(context, d)
+   }
+ })
+ sub.<span class="apidocCodeKeywordSpan">connect</span>(sockPath)
+ return sub
+}
+
+/**
+* Get PM2 version.
+* @param {String} sockPath
+* @param {Function} cb
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype.quit" id="apidoc.element.pm2-gui.monitor.prototype.quit">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>quit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">quit = function () {
+  if (this.pm2Sock) {
+    console.debug(&#x27;Closing pm2 pub emitter socket.&#x27;)
+    this.pm2Sock.close()
+  }
+  if (this._sockio) {
+    console.debug(&#x27;Closing socket.io server.&#x27;)
+    this._sockio.close()
+
+    console.debug(&#x27;Destroying tails.&#x27;)
+    this._killTailProcess()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.monitor.prototype.run" id="apidoc.element.pm2-gui.monitor.prototype.run">
+        function <span class="apidocSignatureSpan">pm2-gui.monitor.prototype.</span>run
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function () {
+  this._noClient = true
+
+  this._tails = {}
+  this._usages = {}
+
+  // Observe PM2
+  this._observePM2()
+
+  this._listeningSocketIO()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.pm" id="apidoc.module.pm2-gui.pm">module pm2-gui.pm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm._actionByPMId" id="apidoc.element.pm2-gui.pm._actionByPMId">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_actionByPMId
+        <span class="apidocSignatureSpan">(sockPath, proc, action, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_actionByPMId = function (sockPath, proc, action, cb) {
+  var noBusEvent = action === &#x27;delete&#x27; &#x26;&#x26; proc.pm2_env.status !== &#x27;online&#x27;
+  var pmId = proc.pm_id
+
+  action += &#x27;ProcessId&#x27;
+  var watchEvent = [&#x27;stopWatch&#x27;, action, {
+    id: pmId
+  }, function () {}]
+
+  if (!!~[&#x27;restart&#x27;].indexOf(action)) { // eslint-disable-line no-extra-boolean-cast
+    watchEvent.splice(0, 1, &#x27;restartWatch&#x27;)
+    watchEvent.pop()
+  }
+
+  var actionEvent = [action, pmId, function (err, sock) {
+    cb(err, noBusEvent)
+  }]
+
+  if (action === &#x27;restartProcessId&#x27;) {
+    actionEvent.splice(1, 1, {
+      id: pmId
+    })
+  }
+
+  pm._rpc({
+    sockPath: sockPath,
+    events: [
+      watchEvent,
+      actionEvent
+    ]
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      return cb(err)
+    }
+    if (!procs || procs.length === 0) {
+      return cb(new Error(&#x27;No PM2 process running, the sockPath is &#x22;&#x27; + sockPath + &#x27;&#x22;, please make sure
+ it is existing!&#x27;))
+    }
+
+    async.map(procs, function (proc, next) {
+      pm.<span class="apidocCodeKeywordSpan">_actionByPMId</span>(sockPath, proc, action, next.bind(null, null))
+    }, cb)
+  })
+} else {
+  pm._findById(sockPath, id, function (err, proc) {
+    if (err) {
+      return cb(err)
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm._findById" id="apidoc.element.pm2-gui.pm._findById">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_findById
+        <span class="apidocSignatureSpan">(sockPath, id, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_findById = function (sockPath, id, cb) {
+  pm.list(sockPath, function (err, procs) {
+    if (err) {
+      return cb(err)
+    }
+    if (!procs || procs.length === 0) {
+      return cb(new Error(&#x27;No PM2 process running, the sockPath is &#x22;&#x27; + sockPath + &#x27;&#x22;, please make sure it is existing!&#x27;))
+    }
+
+    var proc = _.find(procs, function (p) {
+      return p &#x26;&#x26; p.pm_id === id
+    })
+
+    if (!proc) {
+      return cb(new Error(&#x27;Cannot find pm process by pm_id: &#x27; + id))
+    }
+
+    cb(null, proc)
+  }, true)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+
+      async.map(procs, function (proc, next) {
+        pm._actionByPMId(sockPath, proc, action, next.bind(null, null))
+      }, cb)
+    })
+  } else {
+    pm.<span class="apidocCodeKeywordSpan">_findById</span>(sockPath, id, function (err, proc) {
+      if (err) {
+        return cb(err)
+      }
+      pm._actionByPMId(sockPath, proc, action, cb)
+    })
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm._rpc" id="apidoc.element.pm2-gui.pm._rpc">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_rpc
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_rpc = function (opts) {
+  var req = axon.socket(&#x27;req&#x27;)
+  var rpcSock = req.connect(opts.sockPath)
+  var rpcClient = new rpc.Client(req)
+
+  // Connect RPC server.
+  rpcSock.on(&#x27;connect&#x27;, function () {
+    // Execute request.
+    var waterfalls = opts.events.map(function (event) {
+      return function (next) {
+        var cb = typeof event[event.length - 1] === &#x27;function&#x27; ? event.pop() : null
+        if (cb) {
+          event.push(function () {
+            // Wrap arguments, no [].slice (avoid leak)!!!
+            var args = new Array(arguments.length)
+            for (var i = 0; i &#x3c; args; i++) {
+              args[i] = arguments[i]
+            }
+            cb.apply(opts.context, arguments)
+            next()
+          })
+        }
+        rpcClient.call.apply(rpcClient, event)
+        if (!cb) {
+          next()
+        }
+      }
+    })
+    async.waterfall(waterfalls, function () {
+      rpcSock.close()
+    })
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Get PM2 version.
+ * @param {String} sockPath
+ * @param {Function} cb
+ */
+pm.version = function (sockPath, cb) {
+  pm.<span class="apidocCodeKeywordSpan">_rpc</span>({
+    sockPath: sockPath,
+    events: [
+      [&#x27;getVersion&#x27;, {}, cb]
+    ]
+  })
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm._tailLogs" id="apidoc.element.pm2-gui.pm._tailLogs">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>_tailLogs
+        <span class="apidocSignatureSpan">(proc, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_tailLogs = function (proc, cb) {
+  var logs = {
+    &#x27;pm2&#x27;: proc.pm2_log
+  }
+  if (proc.pm_log_path) {
+    logs.entire = proc.pm2_env.pm_log_path
+  } else {
+    if (proc.pm2_env.pm_out_log_path) {
+      logs.out = proc.pm2_env.pm_out_log_path
+    }
+    if (proc.pm2_env.pm_err_log_path) {
+      logs.err = proc.pm2_env.pm_err_log_path
+    }
+  }
+
+  var logFiles = []
+  for (var key in logs) {
+    var file = logs[key]
+    if (fs.existsSync(file)) {
+      logFiles.push(file)
+    }
+  }
+  if (logFiles.length === 0) {
+    return null
+  }
+  var tail = spawn(&#x27;tail&#x27;, [&#x27;-n&#x27;, 20, &#x27;-f&#x27;].concat(logFiles), {
+    killSignal: &#x27;SIGTERM&#x27;,
+    detached: true,
+    stdio: [&#x27;ignore&#x27;, &#x27;pipe&#x27;, &#x27;pipe&#x27;]
+  })
+
+  // Use utf8 encoding.
+  tail.stdio.forEach(function (stdio) {
+    stdio &#x26;&#x26; stdio.setEncoding(&#x27;utf8&#x27;)
+  })
+
+  // stdout.
+  tail.stdout.on(&#x27;data&#x27;, function (data) {
+    var lines = []
+    data.split(/\n/).forEach(function (line) {
+      if (!re_blank.test(line)) {
+        lines.push(line)
+      }
+    })
+    if (lines.length &#x3e; 0) {
+      cb(null, lines)
+    }
+  })
+
+  // handle error.
+  tail.stderr.on(&#x27;data&#x27;, function (data) {
+    console.error(data.toString())
+    tail.disconnect()
+    cb(new Error(data.toString().replace(/\n/, &#x27;&#x27;)))
+  })
+  tail.unref()
+  return tail
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ // Fetch the proccess that we need.
+ pm._findById(opts.sockPath, opts.pm_id, function (err, proc) {
+   if (err) {
+     return cb(err)
+   }
+   proc.pm2_log = opts.logPath
+   // Tail logs.
+   cb(null, pm.<span class="apidocCodeKeywordSpan">_tailLogs</span>(proc, each))
+ })
+}
+/**
+* Use linux `tail` command to grep logs.
+* @param {Object} proc
+* @param {Function} cb
+* @returns {*}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm.action" id="apidoc.element.pm2-gui.pm.action">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>action
+        <span class="apidocSignatureSpan">(sockPath, action, id, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">action = function (sockPath, action, id, cb) {
+  if (id === &#x27;all&#x27;) {
+    pm.list(sockPath, function (err, procs) {
+      if (err) {
+        return cb(err)
+      }
+      if (!procs || procs.length === 0) {
+        return cb(new Error(&#x27;No PM2 process running, the sockPath is &#x22;&#x27; + sockPath + &#x27;&#x22;, please make sure it is existing!&#x27;))
+      }
+
+      async.map(procs, function (proc, next) {
+        pm._actionByPMId(sockPath, proc, action, next.bind(null, null))
+      }, cb)
+    })
+  } else {
+    pm._findById(sockPath, id, function (err, proc) {
+      if (err) {
+        return cb(err)
+      }
+      pm._actionByPMId(sockPath, proc, action, cb)
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  socket.on(&#x27;action&#x27;, function (action, id) {
+var prefix = &#x27;[pm2:&#x27; + id + &#x27;]&#x27;
+console.debug(prefix, action, &#x27;sending to pm2 daemon...&#x27;)
+if (self.options.readonly) {
+  console.warn(prefix, &#x27;denied, readonly!&#x27;)
+  return socket.emit(&#x27;action&#x27;, id, &#x27;Can not complete the action due to denied by server, it is readonly!&#x27;)
+}
+pm.<span class="apidocCodeKeywordSpan">action</span>(self.options.pm2Conf.DAEMON_RPC_PORT, action, id, function (err, forceRefresh
+) {
+  if (err) {
+    console.error(action, err.message)
+    return socket.emit(&#x27;action&#x27;, id, &#x27;Can not complete the action due to &#x27; + err.message)
+  }
+  console.debug(prefix, action, &#x27;completed!&#x27;)
+  forceRefresh &#x26;&#x26; self._throttleRefresh()
+})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm.list" id="apidoc.element.pm2-gui.pm.list">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>list
+        <span class="apidocSignatureSpan">(sockPath, cb, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function (sockPath, cb, context) {
+  if (!fs.existsSync(sockPath)) {
+    return cb.call(context, [])
+  }
+  pm._rpc({
+    sockPath: sockPath,
+    events: [
+      [&#x27;getMonitorData&#x27;, {}, cb]
+    ],
+    context: context || this
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+/**
+ * Refresh processes
+ * @private
+ */
+Monitor.prototype._refreshProcs = function () {
+pm.<span class="apidocCodeKeywordSpan">list</span>(this.options.pm2Conf.DAEMON_RPC_PORT, function (err, procs) {
+  if (err) {
+    return this._broadcast(&#x27;info&#x27;, &#x27;Can not connect to pm2 daemon, &#x27; + err.message)
+  }
+  // Wrap processes and cache them.
+  this._procs = procs.map(function (proc) {
+    proc.pm2_env = proc.pm2_env || {
+      USER: &#x27;UNKNOWN&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm.sub" id="apidoc.element.pm2-gui.pm.sub">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>sub
+        <span class="apidocSignatureSpan">(sockPath, cb, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sub = function (sockPath, cb, context) {
+  var sub = axon.socket(&#x27;sub-emitter&#x27;)
+  // Once awake from sleeping.
+  sub.on(&#x27;log:*&#x27;, function (e, d) {
+    // Do not subscribe it.
+    sub.off(&#x27;log:*&#x27;)
+    d.event = &#x27;awake&#x27;
+    cb.call(context, d)
+  })
+
+  // Process events.
+  sub.on(&#x27;process:*&#x27;, function (e, d) {
+    if (d &#x26;&#x26; !!~allowedEvents.indexOf(d.event)) {
+      cb.call(context, d)
+    }
+  })
+  sub.connect(sockPath)
+  return sub
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Observe PM2
+ * @private
+ */
+Monitor.prototype._observePM2 = function () {
+  var pm2Daemon = this.options.pm2Conf.DAEMON_PUB_PORT
+  console.info(&#x27;Connecting to pm2 daemon:&#x27;, pm2Daemon)
+  this.pm2Sock = pm.<span class="apidocCodeKeywordSpan">sub</span>(pm2Daemon, function (data) {
+    console.info(chalk.magenta(data.event), data.process.name + &#x27;-&#x27; + data.process.pm_id)
+    this._throttleRefresh()
+  }, this)
+
+  // Enforce a refresh operation if RPC is not online.
+  this._throttleRefresh()
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm.tail" id="apidoc.element.pm2-gui.pm.tail">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>tail
+        <span class="apidocSignatureSpan">(opts, each, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tail = function (opts, each, cb) {
+  // Fetch the proccess that we need.
+  pm._findById(opts.sockPath, opts.pm_id, function (err, proc) {
+    if (err) {
+      return cb(err)
+    }
+    proc.pm2_log = opts.logPath
+    // Tail logs.
+    cb(null, pm._tailLogs(proc, each))
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+socket._pm_id = pmId
+
+if (self._tails[pmId]) {
+  return
+}
+
+// Tail logs.
+pm.<span class="apidocCodeKeywordSpan">tail</span>({
+  sockPath: self.options.pm2Conf.DAEMON_RPC_PORT,
+  logPath: self.options.pm2Conf.PM2_LOG_FILE_PATH,
+  pm_id: pmId
+}, function (err, lines) {
+  if (err) {
+    return emitError(err, pmId, keepANSI)
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.pm.version" id="apidoc.element.pm2-gui.pm.version">
+        function <span class="apidocSignatureSpan">pm2-gui.pm.</span>version
+        <span class="apidocSignatureSpan">(sockPath, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">version = function (sockPath, cb) {
+  pm._rpc({
+    sockPath: sockPath,
+    events: [
+      [&#x27;getVersion&#x27;, {}, cb]
+    ]
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Get PM2 version and return it to client.
+* @private
+*/
+Monitor.prototype._pm2Ver = function (socket) {
+ var pm2RPC = this.options.pm2Conf.DAEMON_RPC_PORT
+ console.info(&#x27;Fetching pm2 version:&#x27;, pm2RPC)
+ pm.<span class="apidocCodeKeywordSpan">version</span>(pm2RPC, function (err, version) {
+   socket.emit(&#x27;pm2_ver&#x27;, (err || !version) ? &#x27;0.0.0&#x27; : version)
+ })
+}
+
+/**
+* Broadcast to all connected clients.
+* @param {String} event
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.stat" id="apidoc.module.pm2-gui.stat">module pm2-gui.stat</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.stat.cpuInfo" id="apidoc.element.pm2-gui.stat.cpuInfo">
+        function <span class="apidocSignatureSpan">pm2-gui.stat.</span>cpuInfo
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cpuInfo = function () {
+  var cpus = this.cpus
+  var idle = 0
+  var total = 0
+  for (var i in cpus) {
+    idle += cpus[i].times.idle
+    for (var k in cpus[i].times) {
+      total += cpus[i].times[k]
+    }
+  }
+  return {
+    &#x27;idle&#x27;: idle,
+    &#x27;total&#x27;: total
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* System CPU usage percentage (total).
+* @param fn
+* @param context
+*/
+stat.cpuUsage = function (fn, context) {
+ setTimeout(function (ctx, stat1) {
+   var stat2 = ctx.<span class="apidocCodeKeywordSpan">cpuInfo</span>()
+   var perc = 100 * (1 - (stat2.idle - stat1.idle) / (stat2.total - stat1.total))
+   fn.call(context, null, perc.toFixed(2))
+ }, 1000, this, this.cpuInfo())
+}
+
+/**
+* System CPU usage detail information.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.stat.cpuUsage" id="apidoc.element.pm2-gui.stat.cpuUsage">
+        function <span class="apidocSignatureSpan">pm2-gui.stat.</span>cpuUsage
+        <span class="apidocSignatureSpan">(fn, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cpuUsage = function (fn, context) {
+  setTimeout(function (ctx, stat1) {
+    var stat2 = ctx.cpuInfo()
+    var perc = 100 * (1 - (stat2.idle - stat1.idle) / (stat2.total - stat1.total))
+    fn.call(context, null, perc.toFixed(2))
+  }, 1000, this, this.cpuInfo())
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Grep system states.
+ * @param {Function} cb
+ * @private
+ */
+Monitor.prototype._systemStat = function (cb) {
+stat.<span class="apidocCodeKeywordSpan">cpuUsage</span>(function (err, cpuUsage) {
+  if (err) {
+    // Log only.
+    console.error(&#x27;Can not load system/cpu/memory information: &#x27;, err.message)
+  } else {
+    // System states.
+    this._sysStat = _.defaults(_(stat).pick(&#x27;cpus&#x27;, &#x27;arch&#x27;, &#x27;hostname&#x27;, &#x27;platform&#x27;, &#x27
+;release&#x27;, &#x27;uptime&#x27;, &#x27;memory&#x27;).clone(), {
+      cpu: cpuUsage
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
