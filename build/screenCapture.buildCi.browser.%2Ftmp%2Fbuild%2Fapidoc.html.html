@@ -119,6 +119,32 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.dashboard">module pm2-gui.dashboard</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.dashboard.dashboard">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>dashboard
+            <span class="apidocSignatureSpan">(confFile)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.exitGraceful">module pm2-gui.exitGraceful</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.exitGraceful.exitGraceful">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>exitGraceful
+            <span class="apidocSignatureSpan">(code, signal)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.monitor">module pm2-gui.monitor</a><ol>
 
         <li>
@@ -419,6 +445,32 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.startAgent">module pm2-gui.startAgent</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.startAgent.startAgent">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>startAgent
+            <span class="apidocSignatureSpan">(confFile)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.startWebServer">module pm2-gui.startWebServer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pm2-gui.startWebServer.startWebServer">
+            function <span class="apidocSignatureSpan">pm2-gui.</span>startWebServer
+            <span class="apidocSignatureSpan">(confFile)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.pm2-gui.stat">module pm2-gui.stat</a><ol>
 
         <li>
@@ -710,6 +762,116 @@ Edit the `pm2-gui/pm2-gui.ini` file or copy the [config example](./pm2-gui.ini) 
 
 
 
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.dashboard" id="apidoc.module.pm2-gui.dashboard">module pm2-gui.dashboard</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.dashboard.dashboard" id="apidoc.element.pm2-gui.dashboard.dashboard">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>dashboard
+        <span class="apidocSignatureSpan">(confFile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dashboard(confFile) {
+  // restore cursor
+  process.on('exit', function () {
+    process.stdout.write('\u001b[?25h')
+  })
+  var monitor = slave({
+    confFile: confFile
+  })
+  var options = _.clone(monitor.options)
+  var q = Monitor.available(options)
+
+  if (!q) {
+    console.error('No agent is online, can not start it.')
+    return process.exit(0)
+  }
+  var ql = q.choices.length
+  if (ql === 1) {
+    if (q.choices[0].short !== 'localhost') {
+      console.info('There is just one remoting server online, try to connect it.')
+    }
+    return _connectToDashboard(monitor, options, Monitor.parseConnectionString(q.choices[0].value))
+  }
+  if (!options.agent || !options.agent.offline) {
+    q.choices.splice(ql - 1, 0, new inquirer.Separator())
+  }
+
+  console.info('Remoting servers are online, choose one you are intrested in.')
+  console.log('')
+  inquirer.prompt(q).then(function (answers) {
+    console.log('')
+    _connectToDashboard(monitor, options, Monitor.parseConnectionString(answers.socket_server))
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Programmable:
+```javascript
+var pm2GUI = require('pm2-gui');
+pm2GUI.startWebServer([ini_config_file]);
+pm2GUI.startAgent([ini_config_file]);
+pm2GUI.<span class="apidocCodeKeywordSpan">dashboard</span>([ini_config_file]);
+```
+
+&lt;a name="config" /&gt;
+# Configuration
+Edit the `pm2-gui/pm2-gui.ini` file or copy the [config example](./pm2-gui.ini) to `/etc/pm2-gui.ini` (starting with `pm2-gui start
+ /etc/pm2-gui.ini`):
+
+&lt;a name="ui" /&gt;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.exitGraceful" id="apidoc.module.pm2-gui.exitGraceful">module pm2-gui.exitGraceful</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.exitGraceful.exitGraceful" id="apidoc.element.pm2-gui.exitGraceful.exitGraceful">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>exitGraceful
+        <span class="apidocSignatureSpan">(code, signal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function exitGraceful(code, signal) {
+  code = code || 0
+  if (signal !== '-f') {
+    console.debug('Slave has exited, code: ' + code + ', signal: ' + (signal || 'NULL'))
+  }
+  var fds = 0
+
+  function tryToExit () {
+    if ((fds &amp; 1) &amp;&amp; (fds &amp; 2)) {
+      process.exit(code)
+    }
+  }
+
+  [process.stdout, process.stderr].forEach(function (std) {
+    var fd = std.fd
+    if (!std.bufferSize) {
+      fds = fds | fd
+    } else {
+      std.write &amp;&amp; std.write('', function () {
+        fds = fds | fd
+        tryToExit()
+      })
+    }
+  })
+  tryToExit()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
 
 
 </div>
@@ -2181,6 +2343,114 @@ Monitor.prototype._pm2Ver = function (socket) {
 /**
 * Broadcast to all connected clients.
 * @param {String} event
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.startAgent" id="apidoc.module.pm2-gui.startAgent">module pm2-gui.startAgent</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.startAgent.startAgent" id="apidoc.element.pm2-gui.startAgent.startAgent">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>startAgent
+        <span class="apidocSignatureSpan">(confFile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function startAgent(confFile) {
+  var monitor = slave({
+    confFile: confFile
+  })
+
+  var options = monitor.options
+  options.agent = options.agent || {}
+  if (options.agent.offline) {
+    console.error('Agent is offline, can not start it.')
+    return process.exit(0)
+  }
+  options.port = options.port || 8088
+  var sockio = socketIO()
+  sockio.listen(options.port, {
+    origins: options.origins || '*:*'
+  })
+  monitor.sockio = sockio
+  monitor.run()
+  console.info('Socket.io server is listening on 0.0.0.0:' + options.port)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+$ node pm2-gui.js &lt;cmd&gt; [options]
+```
+
+Programmable:
+```javascript
+var pm2GUI = require('pm2-gui');
+pm2GUI.startWebServer([ini_config_file]);
+pm2GUI.<span class="apidocCodeKeywordSpan">startAgent</span>([ini_config_file]);
+pm2GUI.dashboard([ini_config_file]);
+```
+
+&lt;a name="config" /&gt;
+# Configuration
+Edit the `pm2-gui/pm2-gui.ini` file or copy the [config example](./pm2-gui.ini) to `/etc/pm2-gui.ini` (starting with `pm2-gui start
+ /etc/pm2-gui.ini`):
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pm2-gui.startWebServer" id="apidoc.module.pm2-gui.startWebServer">module pm2-gui.startWebServer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pm2-gui.startWebServer.startWebServer" id="apidoc.element.pm2-gui.startWebServer.startWebServer">
+        function <span class="apidocSignatureSpan">pm2-gui.</span>startWebServer
+        <span class="apidocSignatureSpan">(confFile)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function startWebServer(confFile) {
+  var monitor = slave({
+    confFile: confFile
+  })
+  var options = monitor.options
+
+  options.port = options.port || 8088
+  var server = Web({
+    middleware: function (req, res, next) {
+      req._config = options
+      next()
+    },
+    port: options.port
+  })
+
+  monitor.sockio = socketIO(server, {
+    origins: options.origins || '*:*'
+  })
+  monitor.run()
+  console.info('Web server is listening on 127.0.0.1:' + options.port)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```bash
+$ node pm2-gui.js &lt;cmd&gt; [options]
+```
+
+Programmable:
+```javascript
+var pm2GUI = require('pm2-gui');
+pm2GUI.<span class="apidocCodeKeywordSpan">startWebServer</span>([ini_config_file]);
+pm2GUI.startAgent([ini_config_file]);
+pm2GUI.dashboard([ini_config_file]);
+```
+
+&lt;a name="config" /&gt;
+# Configuration
+Edit the `pm2-gui/pm2-gui.ini` file or copy the [config example](./pm2-gui.ini) to `/etc/pm2-gui.ini` (starting with `pm2-gui start
+ /etc/pm2-gui.ini`):
 ...</pre></li>
     </ul>
 
