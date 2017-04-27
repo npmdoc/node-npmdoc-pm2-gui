@@ -1,6 +1,6 @@
 # npmdoc-pm2-gui
 
-#### api documentation for  [pm2-gui (v0.1.4)](https://github.com/Tjatse/pm2-gui)  [![npm package](https://img.shields.io/npm/v/npmdoc-pm2-gui.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-pm2-gui) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-pm2-gui.svg)](https://travis-ci.org/npmdoc/node-npmdoc-pm2-gui)
+#### basic api documentation for  [pm2-gui (v0.1.4)](https://github.com/Tjatse/pm2-gui)  [![npm package](https://img.shields.io/npm/v/npmdoc-pm2-gui.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-pm2-gui) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-pm2-gui.svg)](https://travis-ci.org/npmdoc/node-npmdoc-pm2-gui)
 
 #### An elegant web & terminal interface for Unitech/PM2.
 
